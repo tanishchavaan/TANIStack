@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracker</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="./style.css"/>
+
+<link rel="icon" href="./icon.jpg" type="image/jpeg">
+<link rel="apple-touch-icon" sizes="180x180" href="./icon.jpg">
+<link rel="manifest" href="./manifest.json">
+
+
+</head>
+<body>
+
+  <header>
+    <h1>TANISTACK</h1>
+    <div class="menu-dropdown">
+      <button>☰ Menu</button>
+      <div class="dropdown-content">
+        <button onclick="showSection('dashboard')">Khaatha</button>
+        <button onclick="showSection('productivity')">Productivity</button>
+        <button onclick="showSection('pomodoro')">Pomodoro</button>
+        <button onclick="toggleTheme()">Toggle Theme</button>
+        <button onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <section id="loginSection">
+    <h2>🔐 Enter Your PIN to Continue</h2>
+    <input type="password" id="pinInput" placeholder="Enter PIN">
+    <button onclick="checkPIN()">Login</button>
+  </section>
+
+  <section id="dashboard" class="hidden">
+    <h2>💸KHAATHA</h2>
+    <div class="total-balance" id="totalBalance"><h6>Total Balance: ₹0.00</h6></div>
+    <input type="text" id="descriptionInput" placeholder="(Optional) Description">
+     <input type="number" id="balanceInput" placeholder="Enter Amount">
+    <select id="transactionType">
+      <option value="Credit">Credited</option>
+      <option value="debit">Debited</option>
+    </select>
+    <button onclick="updateBalance()">Add Transaction</button>
+    <canvas id="pieChart" width="300" height="300"></canvas>
+    <canvas id="barChart" width="300" height="300"></canvas>
+  
+    <h3>🧾 Transactions</h3>
+    <table id="transactionTable">
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Description</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Transactions will be injected here -->
+  </tbody>
+</table>
+
+  </section>
+
+  <section id="productivity" class="hidden">
+    <h2>✅ Task List</h2>
+    <input type="text" id="taskInput" placeholder="Add a task">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="taskList"></ul>
+  </section>
+
+  <section id="pomodoro" class="hidden">
+    <h2>⏱️ Pomodoro Timer</h2>
+    <button onclick="startPomodoro()">Start</button>
+    <button onclick="stopPomodoro()">Stop</button>
+    <h1 id="timerDisplay" style="font-size: 3rem;">25:00</h1>
+    <audio id="alarmSound" src="./funny-alarm-317531.mp3" preload="auto"></audio>
+    <p id="breakMessage"></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Tanish Chavan
+  </footer>
+
+  <script  SRC="./script.js"> </script>
+</body>
+</html>
